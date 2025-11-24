@@ -10,6 +10,7 @@ module.exports.ProductsAPI = (app) => {
     .get("/report", ProductsController.generateReport)
     .get("/:id", ProductsController.getProduct)
     .post("/", ProductsController.createProduct)
+    .post("/", ProductsController.createProductMultiples)
     .put("/:id", ProductsController.updateProduct)
     .delete("/:id", ProductsController.deleteProduct);
 

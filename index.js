@@ -5,9 +5,11 @@ const { ProductsAPI } = require("./src/products/index");
 const { UsersAPI } = require("./src/users/index");
 const { IndexApi, NotFoundApi } = require("./src/index/index");
 const debug = require("debug")("app:main");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 /**
  * modulos

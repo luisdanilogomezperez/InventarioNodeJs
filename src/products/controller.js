@@ -82,5 +82,19 @@ module.exports.ProductsController = {
       debug(error);
       Response.error(res);
     }
+  },
+  createProductMultiples: async (req, res) => {
+    try {
+      const { body } = req;
+      if (!body || Object.keys(body).length === 0) {
+        return Response.error(res, new createError.BadRequest());
+      } else {
+        const insertedId = await ProductsService.createProductMultiples(body);
+        Response.success(res, 201, "Razones agregadas", { insertedId });
+      }
+    } catch (error) {
+      debug(error);
+      Response.error(res);
+    }
   }
 };

@@ -35,12 +35,20 @@ const deleteProduct = async (id) => {
   const collection = await Database(COLLECTION);
   let result = await collection.deleteOne({ _id: new ObjectId(id) });
   return result;
-}
+};
+
+const createProductMultiples = async (products) => {
+  const collection = await Database(COLLECTION);
+  const result = await collection.insertMany(products);
+  return result.insertedIds;
+};
+
 module.exports.ProductsService = {
   getAll,
   getById,
   createProduct,
   generateReport,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  createProductMultiples
 };
