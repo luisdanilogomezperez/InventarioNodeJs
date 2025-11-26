@@ -1,2 +1,10 @@
 npm i express mongodb http-errors dotenv debug excel4node 
 npm i -D nodemon
+
+-- pasar las variables de entorno a la imagen docker
+docker run --env-file=./.env node-api-inventario 
+
+--con exposicion de puerto
+-- puerto que expone docker 8081
+-- puerto que expone la app 8080
+docker run --env-file=./.env -p 8081:8080 node-api-inventario
